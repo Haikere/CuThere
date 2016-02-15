@@ -68,5 +68,13 @@
         </div>
     </footer>
     <!--/#footer-->
+    
+    <?php
+    if($title == "Event Check-In")
+        echo    "           </div>"
+        . "     </div>"
+        . " </div>"
+        . "</div>"
+?>
 </body>
 </html>

@@ -28,7 +28,7 @@
                     <button id="recordCurrentLocation" onclick="recordLocation()" class="btn btn-default" disabled>Get Position (Inaccurate)</button>
                     <button id="stopRecording" onclick="stopWatchingLocation()" class="btn btn-default">Stop Recording Location</button>
                     <button id="removePoints" onclick="removeMarkers()" class="btn btn-default" disabled>Remove All Markers</button>
-                    <button id="compareLocation" onClick="changeComparativeLocation()" class="btn btn-default">Desired Location</button>
+                    <button id="compareLocation" onClick="changeComparativeLocation()" class="btn btn-default" disabled>Desired Location</button>
                     <button id="clearTabs" onClick="clearLocationTabs()" class="btn btn-default">Clear Tabs</button>
                 </div>
             </div>
@@ -38,8 +38,8 @@
                     <div class="col-md-12">
                         <ul id="tab1" class="nav nav-pills">
                             <li class="active"><a href="#tab1-item1" data-toggle="tab">Location Data</a></li>
-                            <li><a href="#tab1-item2" data-toggle="tab">Distance From <span id="camparativeLocation">Still Hall</span></a></li>
-                            <li><a href="#tab1-item3" data-toggle="tab">Useless Tab</span></a></li>
+                            <li><a href="#tab1-item2" data-toggle="tab">Distance from Blue Marker at <span id="camparativeLocation">Still Hall</span></a></li>
+                            <li><a href="#tab1-item3" data-toggle="tab">Within Polygon?</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="tab1-item1">
@@ -49,7 +49,7 @@
 
                             </div>
                             <div class="tab-pane fade" id="tab1-item3">
-                                <p>This tab shows nothing.</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,16 @@
             </div>
         </div>
     </section> <!--/#map-section-->    
-    
+    </div>
+</div>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyALFBd6QWtiUv_2fXyvwC4WN_gd6_uLVTw&libraries=geometry"></script>
+    <script type="text/javascript" src="../js/gmaps.js"></script>
+    <script type="text/javascript" src="../js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="../js/classie.js"></script>
+    <script type="text/javascript" src="../js/mlpushmenu.js"></script>
+    <script>
+        new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+    </script>
     <?php
         require '../view/footerInclude.php';
     ?>
