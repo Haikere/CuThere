@@ -30,6 +30,7 @@
                     <button id="removePoints" onclick="removeMarkers()" class="btn btn-default" disabled>Remove All Markers</button>
                     <button id="compareLocation" onClick="changeComparativeLocation()" class="btn btn-default" disabled>Desired Location</button>
                     <button id="clearTabs" onClick="clearLocationTabs()" class="btn btn-default">Clear Tabs</button>
+                    <button id="locationCheck" class="btn btn-default" onclick ="document.location'../model/model.php?action=locationCheck'"> Location Compare </button>
                 </div>
             </div>
         
