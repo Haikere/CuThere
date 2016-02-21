@@ -8,13 +8,10 @@
     <title><?php echo $title; ?></title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/prettyPhoto.css" rel="stylesheet"> 
     <link href="../css/lightbox.css" rel="stylesheet">
     <link href="../css/animate.min.css" rel="stylesheet"> 
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/icons.css" />
-    <link rel="stylesheet" type="text/css" href="../css/component.css" />
 
     <!--[if lt IE 9]>
 	    <script src="../js/html5shiv.js"></script>
@@ -32,20 +29,17 @@
     <script type="text/javascript" src="../js/lightbox.min.js"></script>
     <script type="text/javascript" src="../js/wow.min.js"></script>
     <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="../js/masonry.min.js"></script>
-    <script type="text/javascript" src="../js/countdown-timer.js"></script>
     <script type="text/javascript" src="../js/holder.js"></script>
-    <script type="text/javascript" src="../js/jquery.touchSwipe.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <?php if($title=='Event Check-In') 
+            echo "<script type=\"text/javascript\" src=\"http://maps.google.com/maps/api/js?key=AIzaSyALFBd6QWtiUv_2fXyvwC4WN_gd6_uLVTw&libraries=geometry\"></script>\n"
+            . "\t<script type=\"text/javascript\" src=\"../js/gmaps.js\"></script>\n"
+            . "\t<script type=\"text/javascript\" src=\"../js/cuThereMaps.js\"></script>"; ?>
+
 </head><!--/head-->
 
-<body>
-    <?php 
-    if($title == "Event Check-In")
-          include '../view/eventNav.php';
-        
-        ?>
+<body>     
 	<header id="header">
         <?php include '../view/navInclude.php'; ?>
-    </header>
+ 	</header>
     <!--/#header-->

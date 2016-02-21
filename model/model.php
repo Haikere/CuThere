@@ -1,6 +1,4 @@
 <?php
-
-
         function getDBConnection() {
 		$dataSetName = 'mysql:host=localhost; dbname=cis411_eventregistration';
 		$username = 's_cgillis';
@@ -47,7 +45,6 @@
             
         }
 
-         
 	function logSQLError($errorInfo) {
 		$errorMessage = $errorInfo[2];
                 include '../view/404.php';
