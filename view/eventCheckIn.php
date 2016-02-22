@@ -60,14 +60,6 @@
     </section> <!--/#map-section-->    
     </div>
 </div>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyALFBd6QWtiUv_2fXyvwC4WN_gd6_uLVTw&libraries=geometry"></script>
-    <script type="text/javascript" src="../js/gmaps.js"></script>
-    <script type="text/javascript" src="../js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="../js/classie.js"></script>
-    <script type="text/javascript" src="../js/mlpushmenu.js"></script>
-    <script>
-        new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-    </script>
     <?php
         require '../view/footerInclude.php';
     ?>
