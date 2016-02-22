@@ -1,4 +1,5 @@
 <?php
+
         function getDBConnection() {
 		$dataSetName = 'mysql:host=localhost; dbname=cis411_eventregistration';
 		$username = 's_cgillis';
@@ -41,10 +42,36 @@
 		}		
 	}
         
-        function locationComare() {
-            
-        }
+        function getEventList(){
+            try{
+                $dataBase = getDBConnection();
+                $query = "SELECT"
+                        . " event.name,"
+                        . "event.start_time,"
+                        . "event.end_time,"
+                        . "event.event_date,"
+                        . "event.organizer,"
+                        . "venue.building_name,"
+                        . "venue.room_number"
+                        . " FROM"
+                        . " event INNER JOIN venue ON event.venue_id = venue.id";
+                $statement = $dataBase->prepare($query);
+                $statement->execute();
+                $results = $statement->fetchAll();
+                $statement->closeCursor();
+                return $results;
+            } catch (Exception $ex) {
+                $errorMessage = $e->getMessage();
+                        echo $errorMessage;
+			include '../view/404.php';
+			die;
 
+            }
+        }
+        
+      
+
+         
 	function logSQLError($errorInfo) {
 		$errorMessage = $errorInfo[2];
                 include '../view/404.php';

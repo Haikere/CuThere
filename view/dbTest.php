@@ -1,7 +1,6 @@
  <?php
     $title = "Database Tests";
     require '../view/headerInclude.php';
-    require '../model/model.php';
    
 ?>
     <section id="page-breadcrumb">
