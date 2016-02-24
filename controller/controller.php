@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//require_once '../model/locationModel.php';
 require_once '../model/model.php';
 require_once '../lib/basic_funcs.php';
 
@@ -19,7 +19,7 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/aboutus2.php';
             break;
         case 'dbTest':
-            include '../view/dbTest.php';
+            locationCheck();
             break;
         case 'CheckIn':
             include '../view/eventCheckIn.php';
@@ -37,6 +37,11 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
     } //END SWITCH
+    
+    function locationCheck(){
+       // $array = beckerLocationBreak();
+        include '../view/dbTest.php';
+    }
     
     function addStory(){
         $mode = "add";

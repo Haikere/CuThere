@@ -31,10 +31,12 @@
     <script type="text/javascript" src="../js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="../js/holder.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
-    <?php if($title=='Event Check-In') 
-            echo "<script type=\"text/javascript\" src=\"http://maps.google.com/maps/api/js?key=AIzaSyALFBd6QWtiUv_2fXyvwC4WN_gd6_uLVTw&libraries=geometry\"></script>\n"
-            . "\t<script type=\"text/javascript\" src=\"../js/gmaps.js\"></script>\n"
-            . "\t<script type=\"text/javascript\" src=\"../js/cuThereMaps.js\"></script>"; ?>
+   
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+    <script type="text/javascript" src="../js/gmaps.js"> </script>
+    <script type="text/javascript" src="../js/cuThereMaps.js"></script>
+    
+
 
 </head><!--/head-->
 

@@ -1,5 +1,7 @@
 <?php
-
+/*
+ * ME Testing the change log system of git, and did the repo change locations. So One folder fits all
+ */
         function getDBConnection() {
 		$dataSetName = 'mysql:host=localhost; dbname=cis411_eventregistration';
 		$username = 's_cgillis';
@@ -61,12 +63,54 @@
                 $statement->closeCursor();
                 return $results;
             } catch (Exception $ex) {
-                $errorMessage = $e->getMessage();
+                $errorMessage = $ex->getMessage();
                         echo $errorMessage;
 			include '../view/404.php';
 			die;
 
             }
+        }
+        
+        function locationCheckBecker(){
+            try{
+                    $dataBase = getDBConnection();
+                    $sql = "select venue.id,venue.building_name,venue.room_number,venue.corner1_lat,venue.corner1_lng,venue.corner2_lat,venue.corner2_lng,venue.corner3_lat,venue.corner3_lng,"
+    .                       "venue.corner4_lat,venue.corner4_lng FROM venue WHERE id = 6";      
+                $statement = $dataBase->prepare($sql);
+                $statement->execute();
+                $results = $statement->fetchAll();
+                $statement->closeCursor();
+               // print_r($results);
+                return $results;
+            } catch (Exception $ex) {
+                $errorMessage = $ex->getMessage();
+                        echo $errorMessage;
+			include '../view/404.php';
+			die;
+
+            }
+        }
+        
+         function locationCheckStill(){
+            try{
+                $dataBase = getDBConnection();
+                $sql = "select venue.id,venue.building_name,venue.room_number,venue.corner1_lat,venue.corner1_lng,venue.corner2_lat,venue.corner2_lng,venue.corner3_lat,venue.corner3_lng,"
+    .                       "venue.corner4_lat,venue.corner4_lng FROM venue WHERE id = 1";      
+                $statement = $dataBase->prepare($sql);
+                $statement->execute();
+                $results = $statement->fetchAll();
+                $statement->closeCursor();
+                print_r($results);
+                return $results;
+            } catch (Exception $ex) {
+                $errorMessage = $ex->getMessage();
+                        echo $errorMessage;
+                        include '../view/404.php';
+                        die;
+
+
+
+        }
         }
         
       

@@ -1,17 +1,29 @@
  <?php
     $title = "Database Tests";
     require '../view/headerInclude.php';
+    
+    
    
 ?>
+<div id="body">
+<script src="../js/locationCompare.js"></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
              <div class="container">
                 <div class="row">
                     <div class="action">
                         <div class="col-sm-12">
-                            <h1 class="title">Test Data Pulling From Server </h1>
-                            <p>Cuz thats My job</p>
+                            <h1 class="title">Test Case 1 </h1>
+                            <p>Please check in and record your result based on the color of the screen</p>
                         </div>
+                        Green : Success, you were able to successfully check in based on your geolocation
+                        <br/>
+                  
+                        Yellow: Try again, you may have been outside the bounds, or your location services may be not be enabled.
+                        <br/>
+                       
+                        Red: Unsuccessful
                      </div>
                 </div>
          
@@ -19,71 +31,18 @@
             </div>
         </div>
    </section>
-    <!--/#page-breadcrumb-->
-
-
     <section id="services">
-        <div class="container">
-           
-                
-                <table>
-                    <thead>
-                    <th> Class Number </th>
-                    <th> Class Section </th>
-                    <th> Class Name </th>
-                    <th> Semester </th>
-                    <th> Instructor ID </th>
-                    </thead>
-                      <tbody>
-                <?php 
-                    $results = getClassList();
-                    foreach ($results as $row) {  
-		?>
-                 <tr>
-                <td><?php echo $row['class_number'] ?> </td>
-                <td><?php echo $row['class_section'] ?> </td>
-                <td><?php echo $row['class_name'] ?> </td>
-                <td><?php echo $row['semester_offered'] ?> </td>
-                <td><?php echo $row['first_name'] ?>  <?php echo $row['last_name'] ?> </td>               
-                <td><?php echo $row['email'] ?> </td>
-           </tbody>
-                    <?php } ?>
-                </table>
-             <br/>
-             <br/>
-            <table>
-                <thead>
-                
-                <th>Name</th>
-                <th>Start Time</th>
-                <th> End Time </th>
-                <th> Event Date </th>
-                <th> Organizer </th>
-                <th> Venue </th>
-                </thead>
-                       <tbody>
-                <?php 
-                    $results1 = getEventList();
-                    foreach ($results1 as $row) {  
-		?>
-                 <tr>
-           
-                <td><?php echo $row['name'] ?> </td>
-                <td><?php echo $row['start_time'] ?> </td>
-                <td><?php echo $row['end_time'] ?> </td>
-                <td><?php echo $row['event_date'] ?> </td>
-                <td><?php echo $row['organizer'] ?> </td>
-                <td><?php echo $row['building_name'] ?> </td>
-                <td><?php echo $row['room_number'] ?> </td>
-            </tbody>
-                    <?php } ?>
-                </table>
-                
-            </table>
-            
+            <div>
+
+                <p id="test"></p>
+             <!-- <button onclick="myFunction()">Try it</button> -->
+              <button onclick="locationCheck()">Get Location</button>
+              
+
             </div>
-        </div>
-    </section>
+        </section>
+    
+</div>
     <!--/#services-->
 
     
