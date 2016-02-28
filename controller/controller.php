@@ -15,17 +15,23 @@ if (isset($_POST['action'])) {  // check get and post
     }
     
     switch ($action){
+        case 'Home':
+            include '../view/index.php';
+            break;
+        case 'ListEvents':
+            include '../view/eventList.php';
+            break;
+        case 'EventDetails':
+            include '../view/eventDetails.php';
+            break;
+        case 'TestLocation':
+            include '../view/eventCheckInTest.php';
+            break;
         case 'About':
             include '../view/aboutus2.php';
             break;
         case 'dbTest':
             include '../view/dbTest.php';
-            break;
-        case 'CheckIn':
-            include '../view/eventCheckIn.php';
-            break;
-        case 'Home':
-            include '../view/index.php';
             break;
         case 'Shortcodes':
             include '../view/shortcodes.php';
