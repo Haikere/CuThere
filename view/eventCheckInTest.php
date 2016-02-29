@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="action">
                         <div class="col-sm-12">
-                            <h1 class="title">Event Check-In</h1>
+                            <h1 class="title"><?php echo $title ?></h1>
                         </div>                        
                     </div>
                 </div>
