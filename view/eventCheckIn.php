@@ -2,7 +2,6 @@
     $title = "Event Check-In";
     require '../view/headerInclude.php';
 ?>
-
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
              <div class="container">

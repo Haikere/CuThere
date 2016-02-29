@@ -56,7 +56,9 @@
  *  
  *   
  */
-
+count = 0;
+error = "I messed up";
+var watchPosArray = [];
 function myFunction() {
  
      $.get("../model/locationModel.php?ajax", function(array){
@@ -72,11 +74,17 @@ function myFunction() {
   });   
 } //END GET BUILDING FUNC
 function locationCheck(){
+
     myFunction();
+	document.getElementById("test").innerHTML =  "corner 1 ( " + corner1_lat + ", " + corner1_lng + ")" + "<br/>" + "corner 2 ( " + corner2_lat + ", " + corner2_lng + ")" + "<br/>" + "corner 3 ( " + corner3_lat + ", " + corner3_lng + ")" + "<br/>" +"corner 4 ( " + corner4_lat + ", " + corner4_lng +  ")" + "<br/>";
+
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
+   // watchID = navigator.geolocation.watchPosition( userPositionFill, error, {maximumAge: 30000, timeout: 10000, enableHighAccuracy: true} );
+    //document.getElementById("test").innerHTML += watchID;
+	navigator.geolocation.getCurrentPosition(function(position) {
     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       //initialLocation = new google.maps.LatLng(41.205796, -79.379616);
+      document.getElementById("test").innerHTML += "CurrLoc " + initialLocation + "<br/>";
         polyCheck(initialLocation);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
@@ -85,6 +93,19 @@ if (navigator.geolocation) {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
+function error() 
+    {
+	alert("Cannot locate user. Please enable Location (and high accuracy mode) on your phone and try again");
+    }
+function userPositionFill(position){
+     watchPosArray[count]= new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+     count++;
+    if(count === 5){
+        navigator.geolocation.clearWatch(watchID);
+        document.getElementById("test").innerHTML += JSON.stringify(watchPosArray);
+    }
+        
+}
 
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -110,11 +131,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         true : false;
         
     if(isWithinPolygon === true){
-       document.getElementById("test").innerHTML = 'true';
+       document.getElementById("test").innerHTML += 'true';
        document.getElementById("body").style.backgroundColor = "#00FF00";
     }
     else{
-        document.getElementById("test").innerHTML = 'false';
+        document.getElementById("test").innerHTML += 'false';
        document.getElementById("body").style.backgroundColor = "#FF0000";
   
     }
