@@ -1,7 +1,8 @@
 <?php
 session_start();
-
+//require_once '../model/locationModel.php';
 require_once '../model/model.php';
+require_once '../lib/basic_funcs.php';
 
 unQuoteMe();
 if (isset($_POST['action'])) {  // check get and post
@@ -12,18 +13,41 @@ if (isset($_POST['action'])) {  // check get and post
         include('../view/index.php');  // default action
         exit();
     }
-} else {
+    
     switch ($action){
+        case 'Home':
+            include '../view/index.php';
+            break;
+        case 'ListEvents':
+            include '../view/eventList.php';
+            break;
+        case 'EventDetails':
+            include '../view/eventDetails.php';
+            break;
+        case 'TestLocation':
+            include '../view/eventCheckInTest.php';
+            break;
         case 'About':
-            include '../view/about.php';
+            include '../view/aboutus2.php';
+            break;
+        case 'dbTest':
+            locationCheck();
+            break;
+        case 'Shortcodes':
+            include '../view/shortcodes.php';
             break;
         case 'AddStory':
             addStory();
             break;
         default:
-            getStoriesForPage();       
+            include '../view/index.php';
+            break;
     } //END SWITCH
-}
+    
+    function locationCheck(){
+       // $array = beckerLocationBreak();
+        include '../view/dbTest.php';
+    }
     
     function addStory(){
         $mode = "add";
@@ -38,62 +62,6 @@ if (isset($_POST['action'])) {  // check get and post
 
         include '../view/newStory.php';    
     }
-    
-    function deleteStory(){
-        $storyID = $_GET['StoryId'];
-        if (!isset($storyID)) {
-            $errorMessage = 'You must provide the ID of the Story you want to delete.';
-            include '../view/errorMessage.php';
-        } 
-        else {
-            $rowCount = deleteOneStory($storyID);
-            if ($rowCount != 1) {
-                    $errorMessage = "The delete affected $rowCount rows. Please contact the site Admin to correct this issue";
-                    include '../view/errorMessage.php';
-            } else {
-                    header("Location:../controller/controller.php?action=Home&ListType=Home");
-            }
-        }
-    }
-
-    function displayRequestedStory(){
-        $storyID = $_GET['StoryId'];
-        $row = getSingleStory($storyID);
-        include '../view/displayStory.php';
-    }
-    
-    function editStory(){
-        
-            $storyID = $_GET['StoryId'];
-        
-            if (!isset($storyID)) {
-                    $errorMessage = 'You must provide a StoryID to display.';
-                    include '../view/errorMessage.php';
-            } 
-            else {
-                $row = getStory($storyID);
-                if ($row == FALSE) {
-                    $errorMessage = 'That Story can no longer be found.';
-                    include '../view/errorMessage.php';
-                } 
-                
-                else {
-                    $mode = "Edit";
-                    $storyID = $row['StoryId'];
-                    $headline = $row['Headline'];
-                    $section = $row['Section'];
-                    $writer = $row['Writer'];
-                    $story = $row['Story'];
-                    $storyImage = $row['StoryImage'];
-                    $topStory = $row['TopStory'];
-                    $datePublished = $row['DatePublished'];
-                    
-                    include '../view/newStory.php'; 
-                    
-                }
-            }
-    }
-
   
     function processRegistration(){
         $firstName = $_POST['FirstName'];

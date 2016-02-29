@@ -2,14 +2,13 @@
     $title = "Event Check-In";
     require '../view/headerInclude.php';
 ?>
-
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
              <div class="container">
                 <div class="row">
                     <div class="action">
                         <div class="col-sm-12">
-                            <h1 class="title">Event Check-In</h1>
+                            <h1 class="title"><?php echo $title ?></h1>
                         </div>                        
                     </div>
                 </div>
@@ -60,14 +59,6 @@
     </section> <!--/#map-section-->    
     </div>
 </div>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyALFBd6QWtiUv_2fXyvwC4WN_gd6_uLVTw&libraries=geometry"></script>
-    <script type="text/javascript" src="../js/gmaps.js"></script>
-    <script type="text/javascript" src="../js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="../js/classie.js"></script>
-    <script type="text/javascript" src="../js/mlpushmenu.js"></script>
-    <script>
-        new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-    </script>
     <?php
         require '../view/footerInclude.php';
     ?>
