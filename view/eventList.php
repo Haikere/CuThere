@@ -21,6 +21,7 @@
     <section id="portfolio-information" class="padding-top">
         <div class="container">
             <div class="row">
+                <?php print_r($results) ?> <!-- CG: Just Was Printing out for test purposes, feel free to delete whenver -->
                 <table id="eventsTable" class="table table-hover table-bordered">
                     <thead>
                         <tr>

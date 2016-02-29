@@ -80,7 +80,7 @@ function locationCheck(){
 
 if (navigator.geolocation) {
    // watchID = navigator.geolocation.watchPosition( userPositionFill, error, {maximumAge: 30000, timeout: 10000, enableHighAccuracy: true} );
-    //document.getElementById("test").innerHTML += watchID;
+   //document.getElementById("test").innerHTML += watchID;
 	navigator.geolocation.getCurrentPosition(function(position) {
     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
       //initialLocation = new google.maps.LatLng(41.205796, -79.379616);

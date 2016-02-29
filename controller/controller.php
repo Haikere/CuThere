@@ -19,10 +19,10 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
         case 'ListEvents':
-            include '../view/eventList.php';
+            listEvents();
             break;
         case 'EventDetails':
-            include '../view/eventDetails.php';
+            eventDetails();
             break;
         case 'TestLocation':
             include '../view/eventCheckInTest.php';
@@ -44,24 +44,23 @@ if (isset($_POST['action'])) {  // check get and post
             break;
     } //END SWITCH
     
+    function eventDetails(){
+        $eventID = 16;//$_GET[event.id];
+        $results = getEventDetails($eventID);
+        include '../view/eventDetails.php';
+    }
+    
+    function listEvents(){
+        $results = getEventList();
+        include '../view/eventList.php';
+    }
+    
     function locationCheck(){
        // $array = beckerLocationBreak();
         include '../view/dbTest.php';
     }
     
-    function addStory(){
-        $mode = "add";
-        $storyID = 0;
-        $headline = "";
-        $section = "";
-        $writer = "";
-        $story = "";
-        $storyImage = "GenericPic.jpg";
-        $topStory = "Y";
-        $datePublished = "yyyy:mm:dd";
-
-        include '../view/newStory.php';    
-    }
+    
   
     function processRegistration(){
         $firstName = $_POST['FirstName'];
