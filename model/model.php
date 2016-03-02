@@ -3,7 +3,7 @@
  * ME Testing the change log system of git, and did the repo change locations. So One folder fits all
  */
         function getDBConnection() {
-		$dataSetName = 'mysql:host=localhost; dbname=cis411_eventregistration';
+		$dataSetName = 'mysql:host=localhost; dbname=cis411_EventRegistration';
 		$username = 's_cgillis';
 		$password = 'Gk$98pbw';
 
@@ -47,6 +47,7 @@
         function getEventDetails($eventid){
             try{
                 $dataBase = getDBConnection();
+<<<<<<< HEAD
                 $query = "SELECT \n"
                         . "event.name, \n"
                         . "event.start_time, \n"
@@ -58,6 +59,19 @@
                         . "FROM \n"
                         . "event INNER JOIN venue ON event.venue_id = venue.id  \n"
                         . "WHERE event.id = :id";
+=======
+                $query = "SELECT"
+                        . " event.name,"
+                        . "event.id,"
+                        . "event.start_time,"
+                        . "event.end_time,"
+                        . "event.event_date,"
+                        . "event.organizer,"
+                        . "venue.building_name,"
+                        . "venue.room_number"
+                        . " FROM"
+                        . " event INNER JOIN venue ON event.venue_id = venue.id";
+>>>>>>> origin/master
                 $statement = $dataBase->prepare($query);
                 $statement->bindValue(':id', $eventid);
                 $statement->execute();
@@ -74,6 +88,7 @@
             }
         }
         
+<<<<<<< HEAD
         function getEventList(){
             try{
                 $dataBase = getDBConnection();
@@ -93,6 +108,32 @@
     . "ORDER BY \n"
     . " event.event_date";
                 $statement = $dataBase->prepare($query);
+=======
+        function getEvent($id){
+            try {
+                $db = getDBConnection();
+                $query = "SELECT * FROM event  INNER JOIN venue ON event.venue_id = venue.id WHERE event.id = :eventID";
+                $statement = $db->prepare($query);
+                $statement->bindValue(':eventID', $id);
+                $statement->execute();
+                $result = $statement->fetch();  // Should be 0 or 1 row
+                $statement->closeCursor();
+                return $result;			 // False if 0 rows
+            } catch (PDOException $e) {
+                $errorMessage = $ex->getMessage();
+                echo $errorMessage;
+                include '../view/404.php';
+                die;
+            }
+        }
+        
+        function locationCheckBecker(){
+            try{
+                $dataBase = getDBConnection();
+                $sql = "select venue.id,venue.building_name,venue.room_number,venue.corner1_lat,venue.corner1_lng,venue.corner2_lat,venue.corner2_lng,venue.corner3_lat,venue.corner3_lng,"
+                . "venue.corner4_lat,venue.corner4_lng FROM venue WHERE id = 6";      
+                $statement = $dataBase->prepare($sql);
+>>>>>>> origin/master
                 $statement->execute();
                 $results = $statement->fetchAll();
                 $statement->closeCursor();

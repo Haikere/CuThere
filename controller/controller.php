@@ -19,10 +19,17 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
         case 'ListEvents':
+<<<<<<< HEAD
             listEvents();
             break;
         case 'EventDetails':
             eventDetails();
+=======
+            listAllEvents();
+            break;
+        case 'EventDetails':
+            showEventDetails();
+>>>>>>> origin/master
             break;
         case 'TestLocation':
             include '../view/eventCheckInTest.php';
@@ -60,7 +67,44 @@ if (isset($_POST['action'])) {  // check get and post
         include '../view/dbTest.php';
     }
     
+<<<<<<< HEAD
     
+=======
+    function listAllEvents(){
+        $events = getEventList();
+        include '../view/eventList.php';
+    }
+    
+    function showEventDetails() {
+    $EventID = $_GET['EventID'];
+    if (!isset($EventID)) {
+	$errorMessage = 'You must provide an EventID to display.';
+	include '../view/404.php';
+    } else {
+	$row = getEvent($EventID);
+        if ($row == FALSE) {
+            $errorMessage = 'No event was found.';
+            include '../view/404.php';
+        } else {
+            include '../view/eventDetails.php';
+        }
+    }
+}
+    
+    function addStory(){
+        $mode = "add";
+        $storyID = 0;
+        $headline = "";
+        $section = "";
+        $writer = "";
+        $story = "";
+        $storyImage = "GenericPic.jpg";
+        $topStory = "Y";
+        $datePublished = "yyyy:mm:dd";
+
+        include '../view/newStory.php';    
+    }
+>>>>>>> origin/master
   
     function processRegistration(){
         $firstName = $_POST['FirstName'];

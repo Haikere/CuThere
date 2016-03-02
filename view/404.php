@@ -31,12 +31,13 @@
                         <div class="text-center">
                             <div class="bg-404">
                                 <div class="error-image">                                
-                                    <img class="img-responsive" src="../images404.png" alt="">  
+                                    <img class="img-responsive" src="../images/404.png" alt="">  
                                 </div>
                             </div>
                             <h2>PAGE NOT FOUND</h2>
                             <p>The page you are looking for might have been removed, had its name changed.</p>
-                            <a href="index.php" class="btn btn-error">RETURN TO THE HOMEPAGE</a>
+                            <p><?php echo $errorMessage?></p>
+                            <a href="../controller/controller.php?action=Home" class="btn btn-error">RETURN TO THE HOMEPAGE</a>
                             <div class="social-link">
                                 <span><a href="#"><i class="fa fa-facebook"></i></a></span>
                                 <span><a href="#"><i class="fa fa-twitter"></i></a></span>
