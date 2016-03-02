@@ -20,7 +20,11 @@
     <section id="portfolio-information" class="padding-top">
         <div class="container">
             <div class="row">
+<<<<<<< HEAD
                <!--   CG: Just Was Printing out for test purposes, feel free to delete whenver -->
+=======
+                <!-- CG: Just Was Printing out for test purposes, feel free to delete whenver -->
+>>>>>>> master
                 <table id="eventsTable" class="table table-hover table-bordered">
                     <thead>
                         <tr>

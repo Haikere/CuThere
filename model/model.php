@@ -82,10 +82,15 @@
 
             }
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> master
         function getEventList(){
             try{
                 $dataBase = getDBConnection();
                 $query = "SELECT \n"
+<<<<<<< HEAD
                         . " event.id, \n"
                         . " event.name, \n"
                         . " event.start_time, \n"
@@ -100,6 +105,22 @@
                         . " event.event_date > CURDATE() \n"
                         . "ORDER BY \n"
                         . " event.event_date";
+=======
+                            . " event.id, \n"
+                            . " event.name, \n"
+                            . " event.start_time, \n"
+                            . " event.end_time, \n"
+                            . " event.event_date, \n"
+                            . " venue.building_name, \n"
+                            . " venue.room_number \n"
+                            . "FROM \n"
+                            . " event \n"
+                            . " INNER JOIN venue ON event.venue_id = venue.id \n"
+                            . "WHERE \n"
+                            . " event.event_date > CURDATE() \n"
+                            . "ORDER BY \n"
+                            . " event.event_date";
+>>>>>>> master
                 $statement = $dataBase->prepare($query);
                 $statement->execute();
                 $result = $statement->fetchAll();  // Should be 0 or 1 row
@@ -135,7 +156,11 @@
             }
         }
         
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> master
         
 //         function locationCheckStill(){
 //            try{

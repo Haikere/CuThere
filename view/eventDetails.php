@@ -20,7 +20,11 @@
     <section id="portfolio-information" class="padding-top">
         <div class="container">
             <div class="row">
+<<<<<<< HEAD
                <!-- CG: Just Was Printing out for test purposes, feel free to delete whenver -->
+=======
+                <!-- CG: Just Was Printing out for test purposes, feel free to delete whenver -->
+>>>>>>> master
                 <div id ='gmap' class="col-sm-6" style="background-color: #DDD">Insert map here? Maybe allow a picture to be uploaded? If not, it's cool.</div>
                 <div class="col-sm-6">
                     <div class="project-name overflow">
@@ -32,7 +36,11 @@
                     </div>
                     <div class="project-info overflow">
                         <h3>Event Info</h3>
+<<<<<<< HEAD
                         <p> <?php echo $row['description'] ?></p>
+=======
+                        <p> <?php echo $row['description'] ?> </p>
+>>>>>>> master
                         <h3>Time</h3>
                         <ul class="elements">
                             <li><i class="fa fa-angle-right"></i>From <span id='eventStartTime'><?php echo $row['start_time'] ?></span> to <span id='eventEndTime'><?php echo $row['end_time'] ?></span></li>
