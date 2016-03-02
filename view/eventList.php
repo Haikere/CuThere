@@ -20,11 +20,7 @@
     <section id="portfolio-information" class="padding-top">
         <div class="container">
             <div class="row">
-<<<<<<< HEAD
-               <!--   CG: Just Was Printing out for test purposes, feel free to delete whenver -->
-=======
                 <!-- CG: Just Was Printing out for test purposes, feel free to delete whenver -->
->>>>>>> master
                 <table id="eventsTable" class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -37,15 +33,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($result as $row){ ?><tr>
+                        <?php $i=0; foreach ($events as $row){ $i++; ?><tr>
                             <td><a href="../controller/controller.php?action=EventDetails&amp;EventID=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></td>
                             <td><?php echo $row['building_name'] ?></td>
                             <td><?php echo $row['room_number'] ?></td>
                             <td><?php echo $row['event_date'] ?></td>
                             <td><?php echo $row['start_time'] ?></td>
                             <td><?php echo $row['end_time'] ?></td>
-                            
-                               
                         </tr>
                         <?php } ?></tbody>
                 </table>

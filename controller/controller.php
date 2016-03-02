@@ -43,9 +43,6 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
     } //END SWITCH
-<<<<<<< HEAD
-      
-=======
     
     function eventDetails(){
         $eventID = 16;//$_GET[event.id];
@@ -54,18 +51,13 @@ if (isset($_POST['action'])) {  // check get and post
     }
     
     
->>>>>>> master
     function locationCheck(){
        // $array = beckerLocationBreak();
         include '../view/dbTest.php';
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> master
 
     function listAllEvents(){
-        $result = getEventList();
+        $events = getEventList();
         include '../view/eventList.php';
     }
     

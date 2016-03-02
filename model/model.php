@@ -1,15 +1,6 @@
 <?php
 /*
  * ME Testing the change log system of git, and did the repo change locations. So One folder fits all
- * 
- * 
- * NEVER TOUCH THIS FILE!!!!!! Always send changes to the model to Chris, things will get broken if you change the wrong things
- * NEVER TOUCH ME!!!!
- * NEVER TOUCH ME!!!!
- * NEVER TOUCH ME!!!!
- * NEVER TOUCH ME!!!!
- * NEVER TOUCH ME!!!!
- * 
  */
         function getDBConnection() {
 		$dataSetName = 'mysql:host=localhost; dbname=cis411_EventRegistration';
@@ -82,30 +73,11 @@
 
             }
         }
-<<<<<<< HEAD
-=======
         
->>>>>>> master
         function getEventList(){
             try{
                 $dataBase = getDBConnection();
                 $query = "SELECT \n"
-<<<<<<< HEAD
-                        . " event.id, \n"
-                        . " event.name, \n"
-                        . " event.start_time, \n"
-                        . " event.end_time, \n"
-                        . " event.event_date, \n"
-                        . " venue.building_name, \n"
-                        . " venue.room_number \n"
-                        . "FROM \n"
-                        . " event \n"
-                        . " INNER JOIN venue ON event.venue_id = venue.id \n"
-                        . "WHERE \n"
-                        . " event.event_date > CURDATE() \n"
-                        . "ORDER BY \n"
-                        . " event.event_date";
-=======
                             . " event.id, \n"
                             . " event.name, \n"
                             . " event.start_time, \n"
@@ -120,22 +92,18 @@
                             . " event.event_date > CURDATE() \n"
                             . "ORDER BY \n"
                             . " event.event_date";
->>>>>>> master
                 $statement = $dataBase->prepare($query);
                 $statement->execute();
                 $result = $statement->fetchAll();  // Should be 0 or 1 row
                 $statement->closeCursor();
                 return $result;			 // False if 0 rows
-            } catch (PDOException $ex) {
+            } catch (PDOException $e) {
                 $errorMessage = $ex->getMessage();
                 echo $errorMessage;
                 include '../view/404.php';
                 die;
             }
-                
-            }
-        
-       
+        }
         
         function locationCheckBecker(){
             try{
@@ -156,11 +124,7 @@
             }
         }
         
-<<<<<<< HEAD
-
-=======
         
->>>>>>> master
         
 //         function locationCheckStill(){
 //            try{
@@ -187,7 +151,7 @@
       
 
          
-function logSQLError($errorInfo) {
+	function logSQLError($errorInfo) {
 		$errorMessage = $errorInfo[2];
                 include '../view/404.php';
 		die;
