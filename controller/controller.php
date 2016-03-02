@@ -19,17 +19,10 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
         case 'ListEvents':
-<<<<<<< HEAD
-            listEvents();
-            break;
-        case 'EventDetails':
-            eventDetails();
-=======
             listAllEvents();
             break;
         case 'EventDetails':
             showEventDetails();
->>>>>>> origin/master
             break;
         case 'TestLocation':
             include '../view/eventCheckInTest.php';
@@ -50,28 +43,15 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
     } //END SWITCH
-    
-    function eventDetails(){
-        $eventID = 16;//$_GET[event.id];
-        $results = getEventDetails($eventID);
-        include '../view/eventDetails.php';
-    }
-    
-    function listEvents(){
-        $results = getEventList();
-        include '../view/eventList.php';
-    }
-    
+      
     function locationCheck(){
        // $array = beckerLocationBreak();
         include '../view/dbTest.php';
     }
     
-<<<<<<< HEAD
-    
-=======
+
     function listAllEvents(){
-        $events = getEventList();
+        $result = getEventList();
         include '../view/eventList.php';
     }
     
@@ -81,7 +61,7 @@ if (isset($_POST['action'])) {  // check get and post
 	$errorMessage = 'You must provide an EventID to display.';
 	include '../view/404.php';
     } else {
-	$row = getEvent($EventID);
+	$row = getEventDetails($EventID);
         if ($row == FALSE) {
             $errorMessage = 'No event was found.';
             include '../view/404.php';
@@ -104,7 +84,7 @@ if (isset($_POST['action'])) {  // check get and post
 
         include '../view/newStory.php';    
     }
->>>>>>> origin/master
+
   
     function processRegistration(){
         $firstName = $_POST['FirstName'];

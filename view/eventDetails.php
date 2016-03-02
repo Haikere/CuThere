@@ -32,7 +32,7 @@
                     </div>
                     <div class="project-info overflow">
                         <h3>Event Info</h3>
-                        <p>Description Here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus nibh sed elimttis adipiscing. Fusce in hendrerit purus. Suspendisse potenti. Proin quis eros odio, dapibus dictum mauris. Donec nisi libero, adipiscing id pretium eget, consectetur sit amet leo. Nam at eros quis mi egestas fringilla non nec purus.</p>
+                        <p> <?php echo $row['description'] ?></p>
                         <h3>Time</h3>
                         <ul class="elements">
                             <li><i class="fa fa-angle-right"></i>From <span id='eventStartTime'><?php echo $row['start_time'] ?></span> to <span id='eventEndTime'><?php echo $row['end_time'] ?></span></li>
