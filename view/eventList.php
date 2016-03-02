@@ -2,7 +2,6 @@
     $title = "List of Events";
     require '../view/headerInclude.php';
 ?>
-
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
              <div class="container">
@@ -33,15 +32,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="../controller/controller.php?action=EventDetails&amp;EventID=0">Carter Auditorium Test</a></td>
-                            <td>Still Hall</td>
-                            <td>112</td>
-                            <td>3/3/16</td>
-                            <td>2pm</td>
-                            <td>2:15pm</td>
+                        <?php $i=0; foreach ($events as $row){ $i++; ?><tr>
+                            <td><a href="../controller/controller.php?action=EventDetails&amp;EventID=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></td>
+                            <td><?php echo $row['building_name'] ?></td>
+                            <td><?php echo $row['room_number'] ?></td>
+                            <td><?php echo $row['event_date'] ?></td>
+                            <td><?php echo $row['start_time'] ?></td>
+                            <td><?php echo $row['end_time'] ?></td>
                         </tr>
-                    </tbody>
+                        <?php } ?></tbody>
                 </table>
             </div>
         </div>

@@ -19,10 +19,10 @@ if (isset($_POST['action'])) {  // check get and post
             include '../view/index.php';
             break;
         case 'ListEvents':
-            include '../view/eventList.php';
+            listAllEvents();
             break;
         case 'EventDetails':
-            include '../view/eventDetails.php';
+            showEventDetails();
             break;
         case 'TestLocation':
             include '../view/eventCheckInTest.php';
@@ -48,6 +48,27 @@ if (isset($_POST['action'])) {  // check get and post
        // $array = beckerLocationBreak();
         include '../view/dbTest.php';
     }
+    
+    function listAllEvents(){
+        $events = getEventList();
+        include '../view/eventList.php';
+    }
+    
+    function showEventDetails() {
+    $EventID = $_GET['EventID'];
+    if (!isset($EventID)) {
+	$errorMessage = 'You must provide an EventID to display.';
+	include '../view/404.php';
+    } else {
+	$row = getEvent($EventID);
+        if ($row == FALSE) {
+            $errorMessage = 'No event was found.';
+            include '../view/404.php';
+        } else {
+            include '../view/eventDetails.php';
+        }
+    }
+}
     
     function addStory(){
         $mode = "add";
